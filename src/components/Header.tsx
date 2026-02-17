@@ -42,7 +42,6 @@ export default function Header() {
                     .getElementById("contact")
                     ?.scrollIntoView({ behavior: "smooth" });
             }
-
         } else {
             navigate(item.path);
         }
@@ -88,13 +87,43 @@ export default function Header() {
                 </div>
             </div>
 
-            <div className="lg:hidden absolute top-4 left-4 z-[60] flex drop-shadow-md">
-                <div className="flex items-baseline gap-1" onClick={() => navigate('/')}>
-                    <img src={'/318Mobile.png'} alt="3:18" className="h-7 w-auto object-contain" />
-                    <p className="text-[#6EA1CE] font-avenir font-bold tracking-widest uppercase leading-none">
-                        BIBLE CHURCH
-                    </p>
+            {/* MOBILE HEADER BAR (Ensures visibility) */}
+            <div className="lg:hidden fixed top-0 inset-x-0 h-20 bg-white/95 backdrop-blur-sm shadow-sm z-[55] flex items-center justify-between px-4">
+                <div
+                    className="flex items-center gap-3 cursor-pointer"
+                    onClick={() => navigate('/')}
+                >
+                    {/* Church Logo - Made bigger */}
+                    <img
+                        src={'/ChurchLogo.png'}
+                        alt="Logo"
+                        className="h-14 w-auto object-contain"
+                    />
+
+                    {/* Inline Text */}
+                    <div className="flex items-baseline gap-2">
+                        <img
+                            src={'/318Mobile.png'}
+                            alt="3:18"
+                            className="h-6 w-auto object-contain"
+                        />
+                        <p className="text-[#6EA1CE] text-xs font-avenir font-bold tracking-widest uppercase leading-none">
+                            BIBLE CHURCH
+                        </p>
+                    </div>
                 </div>
+
+                {/* MOBILE HAMBURGER (Inside the bar now) */}
+                <button
+                    className="p-2"
+                    onClick={() => setMobileMenuOpen(true)}
+                >
+                    <div className="w-8 h-5 flex flex-col justify-between">
+                        <span className="w-full h-1 bg-[#6EA1CE] rounded-full"></span>
+                        <span className="w-full h-1 bg-[#6EA1CE] rounded-full"></span>
+                        <span className="w-full h-1 bg-[#6EA1CE] rounded-full"></span>
+                    </div>
+                </button>
             </div>
 
             {/* DESKTOP HEADER */}
@@ -121,18 +150,6 @@ export default function Header() {
                     </nav>
                 </div>
             </header>
-
-            {/* MOBILE HAMBURGER */}
-            <button
-                className="lg:hidden fixed top-6 right-6 z-[60] p-2"
-                onClick={() => setMobileMenuOpen(true)}
-            >
-                <div className="w-8 h-6 flex flex-col justify-between">
-                    <span className="w-full h-1 bg-white shadow-sm"></span>
-                    <span className="w-full h-1 bg-white shadow-sm"></span>
-                    <span className="w-full h-1 bg-white shadow-sm"></span>
-                </div>
-            </button>
         </>
     );
 }
