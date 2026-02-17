@@ -18,3 +18,23 @@
     font-style: normal;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1.2s ease-out forwards;
+}
+
+/* Optional: small delay for the sub-text */
+.delay-75 {
+  animation-delay: 0.15s;
+}
