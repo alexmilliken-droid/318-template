@@ -88,6 +88,15 @@ export default function Header() {
                 </div>
             </div>
 
+            <div className="lg:hidden absolute top-4 left-4 z-[60] flex drop-shadow-md">
+                <div className="flex items-baseline gap-1" onClick={() => navigate('/')}>
+                    <img src={'/318Mobile.png'} alt="3:18" className="h-7 w-auto object-contain" />
+                    <p className="text-[#6EA1CE] font-avenir font-bold tracking-widest uppercase leading-none">
+                        BIBLE CHURCH
+                    </p>
+                </div>
+            </div>
+
             {/* DESKTOP HEADER */}
             <header className="fixed top-0 inset-x-0 z-50 bg-white shadow hidden lg:block">
                 <div className="mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
