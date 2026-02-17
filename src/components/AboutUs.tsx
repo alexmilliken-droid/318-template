@@ -12,7 +12,7 @@ export default function AboutUs() {
                     </p>
                 )
             },
-            image: '/pexels-brett-sayles-3633711.jpg',
+            image: '/pexels-danielwells67-35608646.jpg',
             imgSize: 'aspect-[16/9]',
             button: { path: '/', text: 'Learn More' }
         },
@@ -27,11 +27,25 @@ export default function AboutUs() {
                     </p>
                 )
             },
-            image: '/pexels-brett-sayles-3633711.jpg',
+            image: '/pexels-jmark-272337.jpg',
+            imgSize: 'aspect-[16/9]',
+            button: { path: '/', text: 'Learn More' }
+        },
+        {
+            title: "Our Story",
+            Description: () => {
+                return (
+                    <p>
+                        I never imagined I would be asked to leave a church I loved.
+                        For years, that church was my home—the place where I was taught the Word, where I served faithfully, and where I believed I was growing alongside others in Christ. Until one meeting.
+                    </p>
+                )
+            },
+            image: '/pexels-wolfgang-weiser-467045605-32900729.jpg',
             imgSize: 'aspect-[16/9]',
             button: { path: '/', text: 'Learn More' }
         },
     ];
 
-    return <PageTemplate heroTitle="What To Expect" heroImage={'/pexels-brett-sayles-3633711.jpg'} sections={sections} />;
+    return <PageTemplate heroTitle="About Us" heroImage={'/pexels-divinetechygirl-1181438.jpg'} sections={sections} />;
 }

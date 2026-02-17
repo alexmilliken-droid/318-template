@@ -4,7 +4,11 @@ export default function NewPage() {
     const sections = [
         {
             title: "Service",
-            time: "Starts at 11:00AM Sunday",
+            Time: () => {
+                return (
+                    <p>Starts at <strong className="font-bold">11:00 AM</strong> Sunday</p>
+                )
+            },
             Description: () => {
                 return (
                     <>
@@ -19,7 +23,7 @@ export default function NewPage() {
                     </>
                 )
             },
-            image: '/pexels-brett-sayles-3633711.jpg',
+            image: '/pexels-jibarofoto-2014775.jpg',
             imgSize: 'md'
         },
         {
@@ -36,10 +40,10 @@ export default function NewPage() {
                     </ul>
                 )
             },
-            image: '/pexels-brett-sayles-3633711.jpg',
+            image: '/pexels-fauxels-3184183.jpg',
             imgSize: 'md'
         },
     ];
 
-    return <PageTemplate heroTitle="What To Expect" heroImage={'/pexels-brett-sayles-3633711.jpg'} sections={sections} />;
+    return <PageTemplate heroTitle="What To Expect" heroImage={'/pexels-jibarofoto-2014775.jpg'} sections={sections} />;
 }

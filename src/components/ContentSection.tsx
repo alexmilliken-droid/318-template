@@ -9,7 +9,7 @@ interface ContentSectionProps {
     reverse?: boolean;
     bgColor?: string;
     imgSize: string;
-    button: { path: string, text: string };
+    button?: { path: string, text: string };
 }
 
 const ContentSection: React.FC<ContentSectionProps> = ({
@@ -59,7 +59,7 @@ const ContentSection: React.FC<ContentSectionProps> = ({
                     {button && (
                         <div className="mt-auto pt-6">
                             <button className="px-6 py-3 rounded-lg bg-black text-white">
-                                {button.text}
+                                Learn More
                             </button>
                         </div>
                     )}

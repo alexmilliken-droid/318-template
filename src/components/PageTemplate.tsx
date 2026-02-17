@@ -47,10 +47,8 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
                 {/* Content Sections */}
                 {sections.map((section, index) => (
                     <ContentSection
-                        imgSize={""} button={{
-                            path: "",
-                            text: ""
-                        }} key={index}
+                        imgSize={""}
+                        key={index}
                         {...section}
                         reverse={index % 2 === 1} // zigzag: alternate sides
                     />
