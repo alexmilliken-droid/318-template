@@ -157,12 +157,15 @@ const CardComponent = ({ card, maxItems }) => {
   </p>
 
   <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
-    <button className="bg-[#99badd] w-1/2 sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg hover:bg-[#7bb0e0] transition">
+    <button className="bg-[#99badd] w-1/2 sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg hover:bg-[#7bb0e0] transition" onClick={() => navigate('/')}>
       What To Expect
     </button>
-    <button className="bg-white text-black w-1/2 sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg hover:opacity-90">
-      Memory Verse
-    </button>
+    <button 
+  onClick={() => document.getElementById('memory-verse')?.scrollIntoView({ behavior: 'smooth' })}
+  className="bg-white text-black w-1/2 sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg hover:opacity-90 transition-all cursor-pointer"
+>
+  Memory Verse
+</button>
   </div>
 </div>
   </div>
