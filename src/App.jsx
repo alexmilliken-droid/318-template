@@ -132,27 +132,29 @@ const CardComponent = ({ card, maxItems }) => {
     ))}
 
     {/* HERO CONTENT */}
-    <div className="relative z-20 max-w-3xl text-white w-full">
+    <div className="relative z-20 max-w-4xl text-white w-full">
   {/* Wrapper for the titles to keep height consistent */}
   <div className="grid grid-cols-1 grid-rows-1 mb-4">
-    {heroSlides.map((slide, index) => (
-      <h1
-        key={index}
-        className={`
-          col-start-1 row-start-1 
-          text-xl md:text-4xl lg:5xl font-bold 
-          transition-opacity duration-500 flex items-center justify-center text-center
-          ${index === currentSlide ? "opacity-100" : "opacity-0 pointer-events-none"}
-        `}
-        /* The "invisible" ones still take up space, keeping the height stable */
-        aria-hidden={index !== currentSlide}
-      >
-        {slide.text}
-      </h1>
-    ))}
+    {heroSlides.map((slide, index) => {
+      return (
+        <h1
+          key={index}
+          className={`
+            col-start-1 row-start-1 
+            transition-opacity duration-500 flex flex-col items-center justify-center text-center
+            ${index === currentSlide ? "opacity-100" : "opacity-0 pointer-events-none"}
+          `}
+          aria-hidden={index !== currentSlide}
+        >
+            <span className="text-[22.1px] md:text-5xl font-bold whitespace-nowrap px-2">
+              {slide.text}
+            </span>
+        </h1>
+      );
+    })}
   </div>
 
-  <p className="text-base sm:text-lg mb-6 sm:mb-8 animate-fadeIn delay-75">
+  <p className="text-base sm:text-lg mb-6 sm:mb-8">
     Launches March 22nd
   </p>
 
