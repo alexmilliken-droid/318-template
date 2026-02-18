@@ -36,15 +36,7 @@ export default function App() {
     return () => window.removeEventListener("resize", resizeWindow);
   }, []);
 
-  // Smooth scroll handler
-  const scrollToMemoryVerse = () => {
-    const element = document.getElementById('memory-verse-section');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-const cards = [
+    const cards = [
   {
     title: "About",
     items: ["Who We Are", "What We Believe", "Our Story", "Leadership"],
@@ -74,26 +66,44 @@ const cards = [
     path: '/about'
   },
 ];
-
-  const CardComponent = ({ card }) => (
+const CardComponent = ({ card, maxItems }) => {
+  return (
     <div key={card.title} className="flex flex-col h-full group">
+      {/* Container with fixed aspect ratio or min-height */}
       <div className="relative rounded-lg overflow-hidden shadow-lg flex-1 min-h-[400px]">
-        <img src={card.img} alt={card.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+        <img
+          src={card.img}
+          alt={card.title}
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
         <div className="absolute inset-0 bg-black/60" />
+
+        {/* Content - Using Flex instead of Absolute positioning for the text 
+            ensures it never overlaps the list items below it */}
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-white p-6 text-center">
-          <h3 className="text-xl md:text-2xl font-bold mb-2">{card.title}</h3>
+          <h3 className="text-xl md:text-2xl font-bold mb-2">
+            {card.title}
+          </h3>
           <div className="w-12 h-px bg-white/40 mb-4" />
+
           <ul className="space-y-2">
-            {card.items.map((i) => <li key={i} className="text-base md:text-lg opacity-90">{i}</li>)}
+            {card.items.map((i) => (
+              <li key={i} className="text-base md:text-lg opacity-90">{i}</li>
+            ))}
           </ul>
         </div>
       </div>
-      <div className="mt-4 text-gray-700 flex-grow">{card.text}</div>
+
+      <div className="mt-4 text-gray-700 flex-grow">
+        {card.text}
+      </div>
+
       <button onClick={() => navigate(card.path)} className="cursor-pointer mt-4 bg-[#7bb0e0] px-6 py-2.5 rounded-full hover:bg-[#6a9fcf] text-white transition-colors self-start">
         Learn More
       </button>
     </div>
   );
+};
 
   return (
     <div className="min-h-screen md:bg-white font-sans overflow-x-hidden">
@@ -102,59 +112,74 @@ const cards = [
 
       {/* HERO SECTION */}
       <section className="relative text-center flex flex-col">
-        <div className="relative min-h-[70vh] flex flex-col items-center justify-center pt-24 pb-32 px-4 overflow-hidden"> 
-          {heroSlides.map((slide, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
-                index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
-              }`}
-            >
-              <img src={slide.img} alt="" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-black/60" />
-            </div>
-          ))}
+  <div className="relative min-h-[70vh] flex flex-col items-center justify-center pt-24 pb-32 px-4 overflow-hidden"> 
+    
+    {/* Background Images with Fade-In / Fade-Out */}
+    {heroSlides.map((slide, index) => (
+      <div
+        key={index}
+        className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
+          index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
+        }`}
+      >
+        <img
+          src={slide.img}
+          alt=""
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60" />
+      </div>
+    ))}
 
-          <div className="relative z-20 max-w-3xl text-white">
-            <h1 key={`title-${currentSlide}`} className="text-3xl sm:text-5xl font-bold mb-4 animate-fadeIn">
-              {heroSlides[currentSlide].text}
-            </h1>
-            <p className="text-base sm:text-lg mb-6 sm:mb-8 animate-fadeIn delay-75">
-              Launches March 22nd
-            </p>
+    {/* HERO CONTENT */}
+    <div className="relative z-20 max-w-3xl text-white w-full">
+  {/* Wrapper for the titles to keep height consistent */}
+  <div className="grid grid-cols-1 grid-rows-1 mb-4">
+    {heroSlides.map((slide, index) => (
+      <h1
+        key={index}
+        className={`
+          col-start-1 row-start-1 
+          text-xl md:text-4xl lg:5xl font-bold 
+          transition-opacity duration-500 flex items-center justify-center text-center
+          ${index === currentSlide ? "opacity-100" : "opacity-0 pointer-events-none"}
+        `}
+        /* The "invisible" ones still take up space, keeping the height stable */
+        aria-hidden={index !== currentSlide}
+      >
+        {slide.text}
+      </h1>
+    ))}
+  </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
-              {/* Navigate to /expect */}
-              <button 
-                onClick={() => navigate('/expect')}
-                className="bg-[#99badd] w-1/2 sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg hover:bg-[#7bb0e0] transition"
-              >
-                What To Expect
-              </button>
-              {/* Scroll to Memory Verse Section */}
-              <button 
-                onClick={scrollToMemoryVerse}
-                className="bg-white text-black w-1/2 sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg hover:opacity-90 transition"
-              >
-                Memory Verse
-              </button>
-            </div>
-          </div>
-        </div>
+  <p className="text-base sm:text-lg mb-6 sm:mb-8 animate-fadeIn delay-75">
+    Launches March 22nd
+  </p>
 
-        {/* SERVICE TIMES */}
-        <div className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 z-50 w-full px-4">
-          <div className="max-w-3xl mx-auto bg-[#7bb0e0] text-white shadow-2xl px-4 py-5 sm:px-6 sm:py-6">
-            <div className="text-center space-y-2 sm:space-y-3">
-              <p className="text-sm sm:text-lg md:text-2xl font-medium">Sunday Morning Service</p>
-              <p className="text-lg sm:text-xl md:text-2xl font-bold">11:00 AM</p>
-              <div className="h-px bg-white/30 my-2 sm:hidden" />
-              <p className="text-sm sm:text-lg md:text-2xl font-medium">Sunday Fellowship Meal</p>
-              <p className="text-lg sm:text-xl md:text-2xl font-bold">12:00 PM</p>
-            </div>
-          </div>
-        </div>
-      </section>
+  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
+    <button className="bg-[#99badd] w-1/2 sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg hover:bg-[#7bb0e0] transition">
+      What To Expect
+    </button>
+    <button className="bg-white text-black w-1/2 sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg hover:opacity-90">
+      Memory Verse
+    </button>
+  </div>
+</div>
+  </div>
+
+  {/* SERVICE TIMES — Always on top (z-50) */}
+  <div className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 z-50 w-full px-4">
+    <div className="max-w-3xl mx-auto bg-[#7bb0e0] text-white shadow-2xl px-4 py-5 sm:px-6 sm:py-6">
+      <div className="text-center space-y-2 sm:space-y-3">
+        <p className="text-sm sm:text-lg md:text-2xl font-medium">Sunday Morning Service</p>
+        <p className="text-lg sm:text-xl md:text-2xl font-bold">11:00 AM</p>
+        <div className="h-px bg-white/30 my-2 sm:hidden" />
+        <p className="text-sm sm:text-lg md:text-2xl font-medium">Sunday Fellowship Meal</p>
+        <p className="text-lg sm:text-xl md:text-2xl font-bold">12:00 PM</p>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* CARDS SECTION */}
       <section className="pt-40 sm:pt-48 md:pt-32 px-4 pb-6">
@@ -176,22 +201,39 @@ const cards = [
         </div>
       </section>
 
-      {/* MEMORY VERSE - Added ID for scrolling */}
-      <section id="memory-verse-section" className="bg-[#7bb0e0] py-12 sm:py-16 px-4 text-white text-center">
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">Memory Verse of the Month</h2>
-        <p className="max-w-2xl mx-auto text-base sm:text-lg italic">
-          "For Christ also suffered once for sins, the righteous for the unrighteous, to bring you to God."
+      <section className="bg-[#7bb0e0] py-12 sm:py-16 px-4 text-white text-center" id="memory-verse">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6">
+          Memory Verse of the Month
+        </h2>
+        <p className="max-w-2xl mx-auto text-base sm:text-lg">
+          For Christ also suffered once for sins, the righteous for the
+          unrighteous, to bring you to God.
         </p>
       </section>
 
       {/* CONTACT */}
-      <section className="bg-black py-12 sm:py-16 px-4 text-white">
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-8">Contact Us</h2>
-        <form className="max-w-2xl mx-auto space-y-4">
-          <input placeholder="Name" className="w-full p-3 text-black rounded bg-white outline-none" />
-          <input placeholder="Subject" className="w-full p-3 text-black rounded bg-white outline-none" />
-          <textarea placeholder="Message" className="w-full p-3 h-32 text-black rounded bg-white outline-none" />
-          <button className="bg-[#148500] px-6 py-3 rounded text-base hover:bg-[#116a00] transition-colors">Submit</button>
+      <section className="bg-black py-12 sm:py-16 px-4 text-white" id="contact">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-8 sm:mb-12">
+          Contact Us
+        </h2>
+
+        <form className="max-w-2xl mx-auto space-y-4 sm:space-y-6">
+          <input
+            placeholder="Name"
+            className="w-full p-3 sm:p-4 text-black rounded bg-white"
+          />
+          <input
+            placeholder="Subject"
+            className="w-full p-3 sm:p-4 text-black rounded bg-white"
+          />
+          <textarea
+            placeholder="Message"
+            className="w-full p-3 sm:p-4 h-32 sm:h-40 text-black rounded bg-white"
+          />
+
+          <button className="bg-[#148500] px-6 sm:px-8 py-3 rounded text-base sm:text-lg hover:bg-[#116a00]">
+            Submit
+          </button>
         </form>
       </section>
     </div>
