@@ -152,8 +152,10 @@ const CardComponent = ({ card, maxItems }) => {
   text-[22.5px] 
   /* Above 400px */
   min-[400px]:text-[24.1px] 
+  min-[495px]:text-[28.1px]
   /* 512px and above */
   min-[512px]:text-3xl 
+  min-[650px]:text-4xl 
   /* 684px and above */
   min-[684px]:text-4xl 
   /* Your existing desktop size */
