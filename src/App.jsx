@@ -157,7 +157,7 @@ const CardComponent = ({ card, maxItems }) => {
   </p>
 
   <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
-    <button className="bg-[#99badd] w-1/2 sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg hover:bg-[#7bb0e0] transition" onClick={() => navigate('/')}>
+    <button className="bg-[#99badd] w-1/2 sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg hover:bg-[#7bb0e0] transition" onClick={() => navigate('/expect')}>
       What To Expect
     </button>
     <button 
