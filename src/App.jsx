@@ -146,9 +146,21 @@ const CardComponent = ({ card, maxItems }) => {
           `}
           aria-hidden={index !== currentSlide}
         >
-            <span className="text-[22.1px] md:text-5xl font-bold whitespace-nowrap px-2">
-              {slide.text}
-            </span>
+            <span className={`
+  font-bold whitespace-nowrap px-2
+  /* Base size for screens below 400px */
+  text-[22.5px] 
+  /* Above 400px */
+  min-[400px]:text-[24.1px] 
+  /* 512px and above */
+  min-[512px]:text-3xl 
+  /* 684px and above */
+  min-[684px]:text-4xl 
+  /* Your existing desktop size */
+  md:text-5xl
+`}>
+  {slide.text}
+</span>
         </h1>
       );
     })}
