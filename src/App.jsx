@@ -59,11 +59,11 @@ export default function App() {
 
   const CardComponent = ({ card }) => (
     <div className="flex flex-col group h-full">
-      <div className="relative rounded-2xl overflow-hidden shadow-xl flex-1 min-h-[420px] transition-all duration-500 hover:shadow-2xl">
+      <div className="relative rounded-2xl overflow-hidden shadow-xl flex-1 min-h-[420px] transition-all duration-500 hover:shadow-2xl cursor-pointer">
         <img
           src={card.img}
           alt={card.title}
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 cursor-pointer"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
         
@@ -85,7 +85,7 @@ export default function App() {
         </p>
         <button 
           onClick={() => navigate(card.path)} 
-          className="mt-4 flex items-center gap-2 text-[#7bb0e0] font-semibold hover:text-[#5a8dbd] transition-colors group/btn"
+          className="cursor-pointer mt-4 flex items-center gap-2 text-[#7bb0e0] font-semibold hover:text-[#5a8dbd] transition-colors group/btn"
         >
           Learn More 
           <span className="transform transition-transform group-hover/btn:translate-x-1">→</span>
