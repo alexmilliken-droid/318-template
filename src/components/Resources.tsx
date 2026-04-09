@@ -1,102 +1,106 @@
 import Header from "./Header";
+import { useNavigate } from "react-router";
 
 export default function Resources() {
+    const navigate = useNavigate();
+
     return (
-        <>
+        <div className="min-h-screen bg-white">
             <Header />
 
-            <div className="w-full overflow-x-hidden">
-
-                {/* Hero Section */}
-                <section className="relative h-[35vh] sm:h-[45vh] md:h-[55vh] min-h-[260px] w-full">
+            <main className="w-full">
+                {/* Hero Section - Using the Cinematic Style */}
+                <section className="relative h-[45vh] md:h-[60vh] min-h-[400px] w-full flex items-end overflow-hidden">
                     <img
                         src="/pexels-repuding-12064.jpg"
                         alt="Resources Hero"
-                        className="absolute inset-0 w-full h-full object-cover"
+                        className="absolute inset-0 w-full h-full object-cover scale-105"
                     />
-                    <div className="absolute inset-0 bg-black/50" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-                    <div className="absolute inset-0 flex items-end">
-                        <div className="max-w-7xl mx-auto w-full px-6 pb-12 md:pb-20">
-                            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
-                                Resources
-                            </h2>
-                        </div>
+                    <div className="relative z-10 max-w-7xl mx-auto w-full px-6 pb-12 md:pb-20">
+                        <div className="w-12 h-1 bg-[#7bb0e0] mb-6 rounded-full" />
+                        <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.1]">
+                            Resources
+                        </h1>
+                        <p className="mt-4 text-[#7bb0e0] font-medium tracking-widest uppercase text-sm">
+                            Equipping the Saints
+                        </p>
                     </div>
                 </section>
 
-                {/* Content Section */}
-                <section className="py-16 sm:py-20 md:py-24 bg-white">
-                    <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 flex flex-col gap-16 md:gap-24">
+                {/* Main Content Area */}
+                <section className="py-20 md:py-32 px-6">
+                    <div className="max-w-7xl mx-auto space-y-32">
 
-                        {/* Podcast Card */}
-                        <div className="bg-[#fef8f2] rounded-2xl shadow-lg overflow-hidden">
-                            <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 p-8 sm:p-10 lg:p-14">
+                        {/* Podcast Section - Premium Card Style */}
+                        <div className="relative group overflow-hidden bg-slate-50 rounded-[2rem] border border-slate-100 shadow-xl">
+                            <div className="flex flex-col lg:flex-row items-center">
 
-                                {/* Image */}
-                                <div className="w-full lg:w-1/2 max-w-sm sm:max-w-md lg:max-w-none mx-auto">
-                                    <div className="relative w-full aspect-square">
+                                {/* Podcast Image/Branding */}
+                                <div className="w-full lg:w-1/2 p-8 md:p-12 lg:p-16 flex justify-center bg-white">
+                                    <div className="relative w-full max-w-[400px] aspect-square transition-transform duration-500 group-hover:scale-105">
                                         <img
                                             src="/Screenshot 2026-01-08 090658.png"
-                                            alt="5 Minutes With The Doc Podcast Logo"
-                                            className="w-full h-full object-contain"
+                                            alt="5 Minutes With The Doc Logo"
+                                            className="w-full h-full object-contain drop-shadow-2xl"
                                         />
                                     </div>
                                 </div>
 
-                                {/* Content */}
-                                <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left gap-6">
-
-                                    <h1 className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-900 leading-tight">
+                                {/* Podcast Text Content */}
+                                <div className="w-full lg:w-1/2 p-8 md:p-12 lg:p-16">
+                                    <span className="text-[#7bb0e0] font-bold tracking-widest uppercase text-xs mb-4 block">
+                                        Daily Podcast
+                                    </span>
+                                    <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
                                         5 Minutes With The Doc
-                                    </h1>
-
-                                    <p className="text-base sm:text-lg md:text-xl text-gray-700 max-w-xl leading-relaxed">
+                                    </h2>
+                                    <p className="text-lg text-slate-600 leading-relaxed font-light mb-8 max-w-md">
                                         Be encouraged each day as one of our Elders guides you
                                         through the Bible, teaching and sharing insights from
                                         the Scriptures.
                                     </p>
-
                                     <a
-                                        href="https://open.spotify.com/show/2NssxD9d4uYi5pkGtuDkL0"
+                                        href="https://spotify.com"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-block bg-[#485243] hover:bg-[#5a6451] transition-colors text-white font-semibold text-base sm:text-lg md:text-xl px-8 sm:px-10 py-3 sm:py-4 rounded-lg shadow-md"
+                                        className="inline-flex items-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-full font-bold transition-all hover:bg-[#7bb0e0] hover:shadow-lg hover:shadow-[#7bb0e0]/20 group/btn"
                                     >
                                         Listen Now
+                                        <span className="transform transition-transform group-hover/btn:translate-x-1">→</span>
                                     </a>
-
                                 </div>
                             </div>
                         </div>
 
-                        {/* Divider */}
-                        <div className="mx-auto w-20 sm:w-28 h-[2px] bg-gray-200 rounded-full" />
-
-                        {/* Sermons Card */}
-                        <a
-                            href="/sermons"
-                            className="relative w-full group overflow-hidden rounded-2xl shadow-lg"
-                        >
+                        {/* Sermons High-Impact Banner */}
+                        <div className="relative w-full group overflow-hidden rounded-[2rem] shadow-2xl cursor-pointer">
                             <img
                                 src="/pexels-rdne-8674846.jpg"
                                 alt="Sermons"
-                                className="w-full h-[280px] sm:h-[380px] md:h-[480px] lg:h-[600px] object-cover transition-transform duration-700 group-hover:scale-105"
+                                className="w-full h-[400px] md:h-[600px] object-cover transition-transform duration-[2000ms] group-hover:scale-110"
                             />
 
-                            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition duration-300" />
+                            {/* Overlay Gradient */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent transition-opacity duration-500 group-hover:opacity-90" />
 
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <h3 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-                                    Sermons
+                            <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-20">
+                                <span className="text-[#7bb0e0] font-bold tracking-[0.3em] uppercase text-sm mb-4">
+                                    Watch & Listen
+                                </span>
+                                <h3 className="text-white text-4xl md:text-7xl font-extrabold tracking-tight mb-8">
+                                    Sermon Archive
                                 </h3>
                             </div>
-                        </a>
+                        </div>
 
                     </div>
                 </section>
+            </main>
 
-            </div>
-        </>
+            {/* Footer Spacer */}
+            <div className="h-24 bg-[#1a1a1a]" />
+        </div>
     );
 }

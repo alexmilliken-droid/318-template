@@ -1,4 +1,3 @@
-// components/PageTemplate.tsx
 import React, { ReactNode } from "react";
 import ContentSection from "./ContentSection";
 import Header from "./Header";
@@ -23,38 +22,65 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
     sections,
 }) => {
     return (
-        <>
+        <div className="min-h-screen bg-white">
             <Header />
 
-            <div className="w-full overflow-x-hidden">
+            <main className="w-full">
                 {/* Hero Section */}
-                <section className="relative h-[30vh] sm:h-[40vh] md:h-[50vh] min-h-[250px] w-full">
+                <section className="relative h-[45vh] md:h-[60vh] min-h-[400px] w-full flex items-end overflow-hidden">
+                    {/* Parallax-ready background image */}
                     <img
                         src={heroImage}
                         alt={heroTitle}
-                        className="absolute inset-0 w-full h-full object-cover"
+                        className="absolute inset-0 w-full h-full object-cover scale-105"
                     />
-                    <div className="absolute inset-0 bg-black/40" />
-                    <div className="absolute inset-0 flex items-end">
-                        <div className="max-w-7xl mx-auto w-full px-6 pb-10 md:pb-16">
-                            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
-                                {heroTitle}
-                            </h2>
-                        </div>
+
+                    {/* High-end Gradient Overlay: Darker at bottom for legibility, cinematic at top */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+                    {/* Content Container */}
+                    <div className="relative z-10 max-w-7xl mx-auto w-full px-6 pb-12 md:pb-20">
+                        {/* Subtle Accent Line */}
+                        <div className="w-12 h-1 bg-[#7bb0e0] mb-6 rounded-full" />
+
+                        <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.1]">
+                            {heroTitle}
+                        </h1>
+
+                        {/* Optional breadcrumb or sub-text style */}
+                        <p className="mt-4 text-[#7bb0e0] font-medium tracking-widest uppercase text-sm">
+                            318 Bible Church
+                        </p>
                     </div>
                 </section>
 
-                {/* Content Sections */}
-                {sections.map((section, index) => (
-                    <ContentSection
-                        imgSize={""}
-                        key={index}
-                        {...section}
-                        reverse={index % 2 === 1} // zigzag: alternate sides
-                    />
-                ))}
-            </div>
-        </>
+                {/* Content Sections Container */}
+                <div className="relative">
+                    {/* This adds a soft transition from the hero into the white content */}
+                    <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-black/10 to-transparent pointer-events-none" />
+
+                    <div className="py-12 md:py-20 space-y-0">
+                        {sections.map((section, index) => (
+                            <div
+                                key={index}
+                                className={`bg-white transition-colors duration-500`}
+                            >
+                                <div className="max-w-7xl mx-auto">
+                                    <ContentSection
+                                        imgSize="large" // Standardized size for better beauty
+                                        {...section}
+                                        reverse={index % 2 === 1}
+                                    />
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </main>
+
+            {/* Footer Spacer (Optional) */}
+            <div className="h-20 bg-[#1a1a1a]" />
+        </div>
     );
 };
 
