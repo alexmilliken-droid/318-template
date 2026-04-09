@@ -170,7 +170,7 @@ export default function App() {
         <div className="max-w-3xl mx-auto text-center px-6">
           <h2 className="text-[#7bb0e0] font-bold tracking-widest uppercase text-sm mb-6">Verse of the Month</h2>
           <blockquote className="text-2xl md:text-4xl font-serif text-gray-800 leading-relaxed">
-            "For Christ also suffered once for sins, the righteous for the unrighteous, to bring you to God."
+            "For Christ also suffered once for sins, the righteous for the unrighteous, to bring you to God." - 1 Peter 3:18
           </blockquote>
           <div className="mt-8 w-12 h-1 bg-gray-200 mx-auto" />
         </div>
@@ -181,9 +181,6 @@ export default function App() {
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
           <div>
             <h2 className="text-4xl font-bold mb-6">Get in touch.</h2>
-            <p className="text-gray-400 text-lg">
-              Have questions about our services, ministries, or how to get involved? Send us a message and we'll get back to you soon.
-            </p>
           </div>
           <form className="space-y-4">
             <input 
