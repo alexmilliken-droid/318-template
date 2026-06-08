@@ -75,13 +75,6 @@ export default function App() {
         <p className="text-gray-600 leading-relaxed text-sm flex-grow">
           {card.text}
         </p>
-        <button 
-          onClick={() => navigate(card.path)} 
-          className="cursor-pointer mt-4 flex items-center gap-2 text-[#7bb0e0] font-semibold hover:text-[#5a8dbd] transition-colors group/btn"
-        >
-          Learn More 
-          <span className="transform transition-transform group-hover/btn:translate-x-1">→</span>
-        </button>
       </div>
     </div>
   );
@@ -118,7 +111,6 @@ export default function App() {
         {heroSlides[currentSlide].text}
       </h1>
     </div>
-    <p className="text-lg md:text-xl mt-6 font-light italic opacity-90">Launches March 22nd</p>
     
     <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
       <button onClick={() => navigate('/expect')} className="bg-[#99badd] px-10 py-4 rounded-full font-bold hover:bg-white hover:text-[#99badd] transition-all duration-300 shadow-lg">

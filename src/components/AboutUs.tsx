@@ -14,7 +14,6 @@ export default function AboutUs() {
             },
             image: '/churchImages/churchOutside.webp',
             imgSize: 'aspect-[16/9]',
-            button: { path: '/', text: 'Learn More' }
         },
         {
             title: "What We Believe",
@@ -27,9 +26,8 @@ export default function AboutUs() {
                     </p>
                 )
             },
-            image: '/pexels-jmark-272337.jpg',
+            image: '/churchImages/bible.webp',
             imgSize: 'aspect-[16/9]',
-            button: { path: '/', text: 'Learn More' }
         },
         {
             title: "Why 3:18?",
@@ -43,7 +41,6 @@ export default function AboutUs() {
             },
             image: '/churchImages/sign.webp',
             imgSize: 'aspect-[16/9]',
-            button: { path: '/', text: 'Learn More' }
         },
     ];
 

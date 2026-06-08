@@ -45,5 +45,5 @@ export default function NewPage() {
         },
     ];
 
-    return <PageTemplate heroTitle="What To Expect" heroImage={'/pexels-jibarofoto-2014775.jpg'} sections={sections} />;
+    return <PageTemplate heroTitle="What To Expect" heroImage={'/churchImages/churchOutside.webp'} sections={sections} />;
 }
