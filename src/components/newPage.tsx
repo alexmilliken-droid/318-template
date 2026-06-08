@@ -3,24 +3,6 @@ import PageTemplate from "./PageTemplate";
 export default function WhatToExpect() {
     const sections = [
         {
-            title: "Upon Your Arrival",
-            Description: () => {
-                return (
-                    <div className="space-y-4">
-                        <p>
-                            We want your first visit to be as smooth, clear, and welcoming as possible! When you pull up, you'll find clear signage and a friendly team ready to greet you at the doors.
-                        </p>
-                        <p>
-                            Watch our quick arrival walkthrough video to see exactly where to enter, where to head for the main sanctuary, and how to find our community gathering spaces.
-                        </p>
-                    </div>
-                );
-            },
-            // Your vertical walkthrough arrival video frame
-            video: '/arrival.mp4',
-            imgSize: 'aspect-[9/16]'
-        },
-        {
             title: "Sunday Service",
             time: "Sundays at 11:00 AM", // Moved cleanly here to prevent component errors
             Description: () => {
@@ -61,7 +43,25 @@ export default function WhatToExpect() {
             },
             image: '/pexels-fauxels-3184183.jpg',
             imgSize: 'aspect-[16/9]'
-        }
+        },
+        {
+            title: "Upon Your Arrival",
+            Description: () => {
+                return (
+                    <div className="space-y-4">
+                        <p>
+                            We want your first visit to be as smooth, clear, and welcoming as possible! When you pull up, you'll find clear signage and a friendly team ready to greet you at the doors.
+                        </p>
+                        <p>
+                            Watch our quick arrival walkthrough video to see exactly where to enter, where to head for the main sanctuary, and how to find our community gathering spaces.
+                        </p>
+                    </div>
+                );
+            },
+            // Your vertical walkthrough arrival video frame
+            video: '/arrival.mp4',
+            imgSize: 'aspect-[9/16]'
+        },
     ];
 
     return (
