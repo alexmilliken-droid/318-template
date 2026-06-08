@@ -2,11 +2,13 @@ import React, { ReactNode } from "react";
 import ContentSection from "./ContentSection";
 import Header from "./Header";
 
+// Added optional video string to the typing data contract
 interface SectionData {
     title: string;
     time?: string;
     Description: (props: any) => ReactNode | Promise<ReactNode>;
-    image: string;
+    image?: string; // Made optional since a section might use a video instead
+    video?: string; // New asset track field
     bgColor?: string;
 }
 
@@ -28,26 +30,19 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
             <main className="w-full">
                 {/* Hero Section */}
                 <section className="relative h-[45vh] md:h-[60vh] min-h-[400px] w-full flex items-end overflow-hidden">
-                    {/* Parallax-ready background image */}
                     <img
                         src={heroImage}
                         alt={heroTitle}
                         className="absolute inset-0 w-full h-full object-cover scale-105"
                     />
 
-                    {/* High-end Gradient Overlay: Darker at bottom for legibility, cinematic at top */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-                    {/* Content Container */}
                     <div className="relative z-10 max-w-7xl mx-auto w-full px-6 pb-12 md:pb-20">
-                        {/* Subtle Accent Line */}
                         <div className="w-12 h-1 bg-[#7bb0e0] mb-6 rounded-full" />
-
                         <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.1]">
                             {heroTitle}
                         </h1>
-
-                        {/* Optional breadcrumb or sub-text style */}
                         <p className="mt-4 text-[#7bb0e0] font-medium tracking-widest uppercase text-sm">
                             318 Bible Church
                         </p>
@@ -56,18 +51,17 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
 
                 {/* Content Sections Container */}
                 <div className="relative">
-                    {/* This adds a soft transition from the hero into the white content */}
                     <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-black/10 to-transparent pointer-events-none" />
 
                     <div className="py-12 md:py-20 space-y-0">
                         {sections.map((section, index) => (
                             <div
                                 key={index}
-                                className={`bg-white transition-colors duration-500`}
+                                className="bg-white transition-colors duration-500"
                             >
                                 <div className="max-w-7xl mx-auto">
                                     <ContentSection
-                                        imgSize="large" // Standardized size for better beauty
+                                        imgSize="large"
                                         {...section}
                                         reverse={index % 2 === 1}
                                     />
@@ -78,7 +72,6 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
                 </div>
             </main>
 
-            {/* Footer Spacer (Optional) */}
             <div className="h-20 bg-[#1a1a1a]" />
         </div>
     );

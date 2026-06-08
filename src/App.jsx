@@ -21,21 +21,21 @@ export default function App() {
   const cards = [
     {
       title: "About",
-      items: ["Who We Are", "What We Believe", "Our Story", "Leadership"],
+      items: ["Who We Are", "What We Believe", "Why 3:18", "Hallmarks"],
       text: 'Learn more about 318 Bible Church and our heart for the community.',
       img: 'churchImages/sign.webp',
       path: '/about'
     },
     {
       title: "What To Expect",
-      items: ["Sunday Service", "Sunday Meal"],
+      items: ["Sunday Service", "Sunday Meal", "First Time Arriving"],
       text: 'Whether you’re a first-time guest or a long-time member, find everything about Sundays here.',
       img: 'churchImages/churchInside.webp',
       path: '/expect'
     },
     {
       title: "Kids",
-      items: ["Church for Kids", "How We Serve"],
+      items: ["Family Integrated", "Who's it for?", "Live Service"],
       text: 'Learn how we love and serve your kids every Sunday. Jesus loves the children and so do we.',
       img: 'churchImages/Kids.webp',
       path: '/about'

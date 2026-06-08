@@ -7,6 +7,7 @@ import Resources from './components/Resources.js'
 import ScrollToTop from './components/ScrollToTop.jsx'
 import TenCommitments from './components/TenCommitments.js'
 import { BrowserRouter, Routes, Route } from "react-router"
+import Kids from './components/Kids.jsx'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -18,6 +19,7 @@ createRoot(document.getElementById('root')).render(
       <Route path='/about' element={<AboutUs />} />
       <Route path='/resources' element={<Resources />} />
       <Route path='/commitments' element={<TenCommitments />} />
+      <Route path='/kids' element={<Kids />} />
     </Routes>
 
   </BrowserRouter>

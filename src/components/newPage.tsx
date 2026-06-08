@@ -1,49 +1,74 @@
 import PageTemplate from "./PageTemplate";
 
-export default function NewPage() {
+export default function WhatToExpect() {
     const sections = [
         {
-            title: "Service",
-            Time: () => {
-                return (
-                    <p>Starts at <strong className="font-bold">11:00 AM</strong> Sunday</p>
-                )
-            },
+            title: "Upon Your Arrival",
             Description: () => {
                 return (
-                    <>
-                        <strong className="font-bold">Our services are typically about 60 minutes and involve:</strong>
-                        <ul className="mt-10">
-                            <li><strong className="font-bold">Singing:</strong> We’ll praise God and encourage each other with songs.</li>
-                            <li><strong className="font-bold">Scripture Reading:</strong>  We love the Bible, so we’ll stand to read the passage that we’re studying.</li>
-                            <li><strong className="font-bold">Preaching:</strong>  We’ll preach the unchanging truth of Scripture and seek to apply the Gospel to the core concerns of our lives.</li>
-                            <li><strong className="font-bold">Communion:</strong>  We’ll celebrate the Lord’s Supper as a reminder of Jesus’ death as a sacrifice for sins.</li>
-                            <li><strong className="font-bold">Giving:</strong>  We’ll give as a response to God’s grace to extend the church’s ministry to our community and world.</li>
-                        </ul>
-                    </>
-                )
+                    <div className="space-y-4">
+                        <p>
+                            We want your first visit to be as smooth, clear, and welcoming as possible! When you pull up, you'll find clear signage and a friendly team ready to greet you at the doors.
+                        </p>
+                        <p>
+                            Watch our quick arrival walkthrough video to see exactly where to enter, where to head for the main sanctuary, and how to find our community gathering spaces.
+                        </p>
+                    </div>
+                );
             },
-            image: '/churchImages/churchInside.webp',
-            imgSize: 'md'
+            // Your vertical walkthrough arrival video frame
+            video: '/arrival.mp4',
+            imgSize: 'aspect-[9/16]'
         },
         {
-            title: "Sunday Meal",
-            time: "Starts at 11:00AM Sunday",
+            title: "Sunday Service",
+            time: "Sundays at 11:00 AM", // Moved cleanly here to prevent component errors
             Description: () => {
                 return (
-                    <ul>
-                        <li><strong className="font-bold">Weekly Gathering:</strong> We come together every Sunday at noon to share a meal as a way to connect beyond Sunday service.</li>
-                        <li><strong className="font-bold">Biblical Pattern:</strong> Following the early Church, we break bread together to express unity and shared life in Christ.</li>
-                        <li><strong className="font-bold">Building Relationships:</strong> Eating together allows friendships to grow, burdens to be shared, and encouragement to flow naturally.</li>
-                        <li><strong className="font-bold">Hospitality & Welcome:</strong> The table becomes a place where newcomers feel included and everyone experiences God’s love in a tangible way.</li>
-                        <li><strong className="font-bold">Living as One Body:</strong> This practice reminds us that our fellowship is rooted in Christ and not just programs or schedules.</li>
-                    </ul>
-                )
+                    <div className="space-y-6">
+                        <p className="font-semibold text-gray-900 text-lg">
+                            Our services are typically about 60 minutes long and focus closely on the corporate worship of God. Here is what we do:
+                        </p>
+                        <ul className="space-y-3 list-none pl-0">
+                            <li><strong className="font-bold text-gray-900">Singing:</strong> We praise God and encourage each other with gospel-centered songs.</li>
+                            <li><strong className="font-bold text-gray-900">Scripture Reading:</strong> We love the Bible, so we stand together to read the text we're studying.</li>
+                            <li><strong className="font-bold text-gray-900">Preaching:</strong> We preach the unchanging truth of Scripture and seek to apply the Gospel directly to our lives.</li>
+                            <li><strong className="font-bold text-gray-900">Communion:</strong> We celebrate the Lord’s Supper weekly as a regular reminder of Jesus’ life, death, and substitutionary sacrifice for our sins.</li>
+                            <li><strong className="font-bold text-gray-900">Giving:</strong> We give back as a joyful response to God’s grace to extend our church’s reach into our community.</li>
+                        </ul>
+                    </div>
+                );
+            },
+            image: '/churchImages/churchInside.webp',
+            imgSize: 'aspect-[16/9]'
+        },
+        {
+            title: "Sunday Fellowship Meal",
+            time: "Sundays at 12:15 PM",
+            Description: () => {
+                return (
+                    <div className="space-y-4">
+                        <p className="font-semibold text-gray-900 text-lg">
+                            Following the early Church pattern, we break bread together to visually express our shared life in Christ.
+                        </p>
+                        <ul className="space-y-3 list-none pl-0">
+                            <li><strong className="font-bold text-gray-900">Weekly Gathering:</strong> We come together every single Sunday right after the service to share an open meal.</li>
+                            <li><strong className="font-bold text-gray-900">Building Relationships:</strong> Eating unhurried meals allows organic friendships to grow, burdens to be shared, and encouragement to flow naturally.</li>
+                            <li><strong className="font-bold text-gray-900">Hospitality & Welcome:</strong> The lunch table is where newcomers are embraced, questions are discussed, and church becomes family.</li>
+                        </ul>
+                    </div>
+                );
             },
             image: '/pexels-fauxels-3184183.jpg',
-            imgSize: 'md'
-        },
+            imgSize: 'aspect-[16/9]'
+        }
     ];
 
-    return <PageTemplate heroTitle="What To Expect" heroImage={'/churchImages/churchOutside.webp'} sections={sections} />;
+    return (
+        <PageTemplate
+            heroTitle="What To Expect"
+            heroImage="/churchImages/churchOutside.webp"
+            sections={sections}
+        />
+    );
 }
