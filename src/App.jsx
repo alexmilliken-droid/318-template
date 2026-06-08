@@ -4,7 +4,6 @@ import Header from "./components/Header";
 
 // Images (Assuming paths remain the same)
 import imgRectangle466 from "../public/pexels-brett-sayles-3633711.jpg";
-import churchAbout from '../public/pexels-danielwells67-35608646.jpg'
 import handsRaised from '../public/pexels-shelaghmurphy-1666816.jpg'
 import kidsAbout from '../public/pexels-kseniachernaya-8535594.jpg'
 import Resources from '../public/pexels-israwmx-28688219.jpg'
@@ -14,9 +13,9 @@ export default function App() {
   const navigate = useNavigate();
 
   const heroSlides = [
-    { img: imgRectangle466, text: "Seeing and Savoring Jesus Christ" },
-    { img: churchAbout, text: "Serving one another in love" },
-    { img: handsRaised, text: "Sharing His gospel with the world" }
+    { img: 'churchImages/churchInside.webp', text: "Seeing and Savoring Jesus Christ" },
+    { img: 'churchImages/churchOutside.webp', text: "Serving one another in love" },
+    { img: 'churchImages/sign.webp', text: "Sharing His gospel with the world" }
   ];
 
   const cards = [
@@ -24,28 +23,21 @@ export default function App() {
       title: "About",
       items: ["Who We Are", "What We Believe", "Our Story", "Leadership"],
       text: 'Learn more about 318 Bible Church and our heart for the community.',
-      img: churchAbout,
+      img: 'churchImages/sign.webp',
       path: '/about'
     },
     {
       title: "What To Expect",
       items: ["Sunday Service", "Sunday Meal"],
       text: 'Whether you’re a first-time guest or a long-time member, find everything about Sundays here.',
-      img: handsRaised,
+      img: 'churchImages/churchInside.webp',
       path: '/expect'
     },
     {
       title: "Kids",
       items: ["Church for Kids", "How We Serve"],
       text: 'Learn how we love and serve your kids every Sunday. Jesus loves the children and so do we.',
-      img: kidsAbout,
-      path: '/about'
-    },
-    {
-      title: "Resources",
-      items: ["Podcast", "Sermons"],
-      text: 'Listen to our teaching Pastor and gain daily insights into God’s word!',
-      img: Resources,
+      img: 'churchImages/Kids.webp',
       path: '/about'
     },
   ];
@@ -143,7 +135,7 @@ export default function App() {
     <div className="bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-gray-100">
       <div className="flex-1 p-6 text-center border-b md:border-b-0 md:border-r border-gray-100">
         <span className="text-[10px] uppercase tracking-widest text-gray-400 block mb-1">Service</span>
-        <p className="text-lg font-bold text-gray-800">Sunday Morning • 11:00 AM</p>
+        <p className="text-lg font-bold text-gray-800">Sunday Morning • 10:30 AM</p>
       </div>
       <div className="flex-1 p-6 text-center bg-slate-50">
         <span className="text-[10px] uppercase tracking-widest text-gray-400 block mb-1">Fellowship</span>
@@ -156,7 +148,7 @@ export default function App() {
 {/* CARDS SECTION */}
 {/* Added a bit more top padding (pt-32 instead of pt-48) to balance the gap now that the box is visible */}
 <section className="relative z-10 pt-32 pb-24 px-6 max-w-7xl mx-auto">
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {cards.map((card, index) => (
       <CardComponent key={index} card={card} />
     ))}

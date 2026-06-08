@@ -12,7 +12,7 @@ export default function AboutUs() {
                     </p>
                 )
             },
-            image: '/pexels-danielwells67-35608646.jpg',
+            image: '/churchImages/churchOutside.webp',
             imgSize: 'aspect-[16/9]',
             button: { path: '/', text: 'Learn More' }
         },
@@ -32,7 +32,7 @@ export default function AboutUs() {
             button: { path: '/', text: 'Learn More' }
         },
         {
-            title: "Our Story",
+            title: "Why 3:18?",
             Description: () => {
                 return (
                     <p>
@@ -41,11 +41,11 @@ export default function AboutUs() {
                     </p>
                 )
             },
-            image: '/pexels-wolfgang-weiser-467045605-32900729.jpg',
+            image: '/churchImages/sign.webp',
             imgSize: 'aspect-[16/9]',
             button: { path: '/', text: 'Learn More' }
         },
     ];
 
-    return <PageTemplate heroTitle="About Us" heroImage={'/pexels-divinetechygirl-1181438.jpg'} sections={sections} />;
+    return <PageTemplate heroTitle="About Us" heroImage={'/churchImages/churchInside.webp'} sections={sections} />;
 }

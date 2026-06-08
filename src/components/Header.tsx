@@ -10,7 +10,7 @@ export default function Header() {
         { name: "About Us", path: "/about" },
         { name: "What to Expect", path: "/expect" },
         { name: "Kids", path: "/expect" },
-        { name: "Resources", path: "/resources" },
+
         { name: "Memory Verse", path: "/" },
         { name: "Contact", path: "/expect" },
     ];

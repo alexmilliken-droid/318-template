@@ -23,7 +23,7 @@ export default function NewPage() {
                     </>
                 )
             },
-            image: '/pexels-jibarofoto-2014775.jpg',
+            image: '/churchImages/churchInside.webp',
             imgSize: 'md'
         },
         {
