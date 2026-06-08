@@ -4,7 +4,7 @@ export default function WhatToExpect() {
     const sections = [
         {
             title: "Sunday Service",
-            time: "Sundays at 11:00 AM", // Moved cleanly here to prevent component errors
+            time: "Sundays at 10:30 AM", // Moved cleanly here to prevent component errors
             Description: () => {
                 return (
                     <div className="space-y-6">
@@ -26,7 +26,7 @@ export default function WhatToExpect() {
         },
         {
             title: "Sunday Fellowship Meal",
-            time: "Sundays at 12:15 PM",
+            time: "Sundays at 12:00 PM",
             Description: () => {
                 return (
                     <div className="space-y-4">
@@ -53,14 +53,15 @@ export default function WhatToExpect() {
                             We want your first visit to be as smooth, clear, and welcoming as possible! When you pull up, you'll find clear signage and a friendly team ready to greet you at the doors.
                         </p>
                         <p>
-                            Watch our quick arrival walkthrough video to see exactly where to enter, where to head for the main sanctuary, and how to find our community gathering spaces.
+                            Watch our quick arrival walkthrough video to see exactly where to enter, where to head for the worship and fellowship center, and how to find our community gathering spaces.
                         </p>
                     </div>
                 );
             },
             // Your vertical walkthrough arrival video frame
-            video: '/arrival.mp4',
-            imgSize: 'aspect-[9/16]'
+            video: '/parking.mp4',
+            imgSize: 'aspect-[9/16]',
+            thumbnail: '/thumbnail.png'
         },
     ];
 

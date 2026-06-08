@@ -38,7 +38,7 @@ export default function Kids() {
             Description: () => (
                 <div className="space-y-4">
                     <p>
-                        You don't have to sacrifice hearing the sermon just because you stepped out of the sanctuary. 
+                        You don't have to sacrifice hearing the sermon just because you stepped out of the worship and fellowhsip center. 
                     </p>
                     <p>
                         Our nursery room features a live video feed of the main service. You can care for your children in a relaxed environment while remaining completely connected to the worship and teaching happening next door.

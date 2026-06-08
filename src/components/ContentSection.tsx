@@ -7,6 +7,7 @@ interface ContentSectionProps {
     Description: (props: any) => ReactNode | Promise<ReactNode>;
     image?: string;
     video?: string;
+    thumbnail?: string;
     reverse?: boolean;
     bgColor?: string;
     imgSize: string; // Will pass custom Tailwind aspect ratio classes here
@@ -22,7 +23,8 @@ const ContentSection: React.FC<ContentSectionProps> = ({
     reverse = false,
     bgColor = "bg-white",
     imgSize,
-    button
+    button,
+    thumbnail
 }) => {
     return (
         <section className={`max-w-7xl mx-auto px-6 py-16 ${bgColor}`}>
@@ -31,11 +33,9 @@ const ContentSection: React.FC<ContentSectionProps> = ({
                     }`}
             >
                 {/* Visual Media Block */}
-                {/* Added conditional max width to keep 9/16 video looking clean on desktops */}
                 <div className={`rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-black w-full ${imgSize.includes('9/16') ? 'max-w-[340px] mx-auto' : 'max-w-full'
                     }`}>
                     {video ? (
-                        // Removed hardcoded aspect-[16/9] override to safely honor dynamic strings
                         <div className={`w-full ${imgSize}`}>
                             <video
                                 src={video}
@@ -43,7 +43,8 @@ const ContentSection: React.FC<ContentSectionProps> = ({
                                 preload="metadata"
                                 playsInline
                                 className="w-full h-full object-cover block"
-                                poster={image}
+                                // Prioritizes the thumbnail prop, falls back to the image prop
+                                poster={thumbnail || image}
                             />
                         </div>
                     ) : (
